@@ -18,6 +18,7 @@ void printArray(struct Item arr[], int left, int right) {
 
 void merge(struct Item arr[], int left, int mid, int right) {
     struct Item temp[50];
+
     int i = left;
     int j = mid + 1;
     int k = left;
@@ -28,7 +29,6 @@ void merge(struct Item arr[], int left, int mid, int right) {
     printArray(arr, mid + 1, right);
     printf("\n");
 
-    // Sort according to increasing finish time
     while (i <= mid && j <= right) {
 
         if (arr[i].finish <= arr[j].finish)
@@ -66,4 +66,24 @@ void mergesort(struct Item arr[], int left, int right) {
 
         merge(arr, left, mid, right);
     }
+}
+
+int main() {
+
+    struct Item arr[] = {
+        {1, 4, "A"},
+        {3, 5, "B"},
+        {0, 6, "C"},
+        {5, 7, "D"},
+        {3, 9, "E"}
+    };
+
+    int n = 5;
+
+    mergesort(arr, 0, n - 1);
+
+    printf("Final sorted array:\n");
+    printArray(arr, 0, n - 1);
+
+    return 0;
 }

@@ -4,6 +4,7 @@ int main()
     int arr[100], n, key;
     int low, high, mid;
     int i, found = 0;
+    
     printf("Enter number of elements: ");
     scanf("%d", &n);
 
@@ -16,7 +17,6 @@ int main()
 
     low = 0;
     high = n - 1;
-
     while (low <= high)
     {
         mid = (low + high) / 2;

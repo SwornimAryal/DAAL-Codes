@@ -5,20 +5,16 @@
 int is_safe(int row, int col, int queens[])
 {
     int previous_row;
-
     for (previous_row = 0; previous_row < row; previous_row++)
     {
         int previous_col = queens[previous_row];
-
         // Same column
         if (previous_col == col)
             return 0;
-
         // Same diagonal
         if (abs(previous_row - row) == abs(previous_col - col))
             return 0;
     }
-
     return 1;
 }
 
@@ -26,7 +22,6 @@ int is_safe(int row, int col, int queens[])
 int solve_n_queens(int row, int n, int queens[])
 {
     int col;
-
     // All queens have been placed
     if (row == n)
         return 1;
