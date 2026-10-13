@@ -25,7 +25,6 @@ int solve_n_queens(int row, int n, int queens[])
     // All queens have been placed
     if (row == n)
         return 1;
-
     // Try every column in the current row
     for (col = 0; col < n; col++)
     {
@@ -33,7 +32,6 @@ int solve_n_queens(int row, int n, int queens[])
         {
             // Place queen
             queens[row] = col;
-
             // Move to next row
             if (solve_n_queens(row + 1, n, queens))
                 return 1;
@@ -42,7 +40,6 @@ int solve_n_queens(int row, int n, int queens[])
             queens[row] = -1;
         }
     }
-
     return 0;
 }
 
@@ -50,7 +47,6 @@ int solve_n_queens(int row, int n, int queens[])
 void print_board(int queens[], int n)
 {
     int row, col;
-
     for (row = 0; row < n; row++)
     {
         for (col = 0; col < n; col++)
@@ -60,7 +56,6 @@ void print_board(int queens[], int n)
             else
                 printf(". ");
         }
-
         printf("\n");
     }
 }
@@ -68,16 +63,12 @@ void print_board(int queens[], int n)
 int main()
 {
     int n, i;
-
     printf("Enter number of queens: ");
     scanf("%d", &n);
-
     int queens[n];
-
     // Initialize all positions to -1
     for (i = 0; i < n; i++)
         queens[i] = -1;
-
     if (solve_n_queens(0, n, queens))
     {
         printf("\nSolution:\n");
@@ -87,6 +78,5 @@ int main()
     {
         printf("\nNo solution exists.");
     }
-
     return 0;
 }
